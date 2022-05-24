@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./mainPage.css";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../config/config";
 import { useNavigate } from "react-router-dom";
 
@@ -22,10 +22,15 @@ export default function MainPage() {
         console.log("AllData", tempData);
     }
 
+    const deleteData = async (id) => {
+        await deleteDoc(doc(db, "data", id));
+        querySnapshot();
+    }
 
     useEffect(() => {
         querySnapshot();
     }, []);
+
 
     return (
         <div>
@@ -73,7 +78,10 @@ export default function MainPage() {
                                         display: "flex",
                                     }}>
                                         <button className="actionButton" >Edit</button>
-                                        <button className="actionButton" >Delete</button>
+                                        <button className="actionButton" onClick={() => {
+                                            deleteData(data.id)
+
+                                        }} >Delete</button>
                                     </td>
                                 </tr>
                             )
