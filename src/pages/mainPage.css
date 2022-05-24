@@ -15,4 +15,5 @@
 .table td {
     padding-inline: 15px;
     text-align: left;
+    border: 1px solid #000000;
 }
