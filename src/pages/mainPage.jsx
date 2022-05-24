@@ -55,6 +55,7 @@ export default function MainPage() {
                             <th>Font</th>
                             <th>Size</th>
                             <th>Image Link</th>
+                            <th className="actionBtn" >Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,6 +69,12 @@ export default function MainPage() {
                                     <td>{data.font}</td>
                                     <td>{data.size}</td>
                                     <td>{data.imageLink}</td>
+                                    <td style={{
+                                        display: "flex",
+                                    }}>
+                                        <button className="actionButton" >Edit</button>
+                                        <button className="actionButton" >Delete</button>
+                                    </td>
                                 </tr>
                             )
                         })
