@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./mainPage.css";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/config";
+import { useNavigate } from "react-router-dom";
 
 
 
 export default function MainPage() {
     const [AllData, setallData] = useState([])
     const ref = React.createRef();
+    const navigate = useNavigate();
 
     const querySnapshot = async () => {
         let tempData = [];
@@ -27,6 +29,22 @@ export default function MainPage() {
 
     return (
         <div>
+            <div className="buttonSection">
+                <div className="selectAll">
+                    <button className="btn btn-primary">Select All</button>
+                </div>
+                <div className="changeDate">
+                    <button className="btn btn-primary">Change Date</button>
+                </div>
+                <div className="delete">
+                    <button className="btn btn-primary">Delete</button>
+                </div>
+                <div className="newEntry">
+                    <button className="btn btn-primary" onClick={
+                        () => navigate("/addentry")
+                    }>New Entry</button>
+                </div>
+            </div>
             <div className="table">
                 <table>
                     <thead>
