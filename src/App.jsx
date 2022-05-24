@@ -8,6 +8,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import ViewProduct from './pages/ViewProduct'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,11 +16,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/addentry" element={<AddEntry />} />
-    </Routes>
-  </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/addentry" element={<AddEntry />} />
+          <Route path="/viewData" element={<ViewProduct />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

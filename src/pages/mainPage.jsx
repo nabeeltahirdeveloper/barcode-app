@@ -41,9 +41,6 @@ export default function MainPage() {
                 <div className="changeDate">
                     <button className="btn btn-primary">Change Date</button>
                 </div>
-                <div className="delete">
-                    <button className="btn btn-primary">Delete</button>
-                </div>
                 <div className="newEntry">
                     <button className="btn btn-primary" onClick={
                         () => navigate("/addentry")
@@ -67,7 +64,9 @@ export default function MainPage() {
                         {AllData.map((data) => {
 
                             return (
-                                <tr>
+                                <tr onClick={() => {
+                                    navigate('/viewData', { state: data })
+                                }}>
                                     <td>{data.name}</td>
                                     <td>{data.code}</td>
                                     <td>{data.date}</td>
