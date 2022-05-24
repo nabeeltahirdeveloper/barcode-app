@@ -12,7 +12,9 @@
     "react": "^18.0.0",
     "react-barcode": "^1.4.1",
     "react-dom": "^18.0.0",
-    "react-shorten-url": "^1.0.5"
+    "react-router-dom": "^6.3.0",
+    "react-shorten-url": "^1.0.5",
+    "react-to-pdf": "^0.0.14"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

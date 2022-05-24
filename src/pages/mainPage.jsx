@@ -1,6 +1,8 @@
 import React from "react";
-import Barcode from "react-barcode";
 import "./mainPage.css";
+
+
+const ref = React.createRef();
 
 export default function MainPage() {
     return (
@@ -24,13 +26,14 @@ export default function MainPage() {
                             <td>Otto</td>
                             <td>@mdo</td>
                             <td>@mdo</td>
+                            <td>@mdo</td>
                             <td>
                                 http://cdn.shopify.com/s/files/1/0317/6592/1851/products/allahu-akbar-T-011.jpg?v=1611749422
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <div
+                {/* <div
                     style={{
                         display: "flex",
                         width: "100%",
@@ -38,8 +41,18 @@ export default function MainPage() {
                     }}
                 >
                     <Barcode value="http://cdn.shopify.com/s/files/1/0317/6592/1851/products/allahu-akbar-T-011.jpg?v=1611749422" />
+                    <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>} */}
+      {/* </Pdf> */}
+      <div >
+        <div ref={ref} style={{
+            display: "none",
+        }}>
+      {/* <Barcode value="http://cdn.shopify.com/s/files/1/0317/6592/1851/products/allahu-akbar-T-011.jpg?v=1611749422" /> */}
+</div>
+      </div>
                 </div>
             </div>
-        </div>
+        // </div>
     );
 }
