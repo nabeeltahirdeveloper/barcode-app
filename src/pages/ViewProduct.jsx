@@ -6,9 +6,15 @@ import Pdf from "react-to-pdf";
 import "./ViewProduct.css";
 
 
+
+
 export default function ViewProduct(props) {
+    
+  
+
     const location = useLocation();
     const ref = React.createRef();
+
 
 
     return (
@@ -30,7 +36,7 @@ export default function ViewProduct(props) {
                     height: "250px",
                     display: "flex",
                 }}>
-                    <img src={location.state.imageLink} alt="product" />
+                    <img src={location.state.base64} alt="product" />
                 </div>
                 <div className="name">
                     <h4>Name: {location.state.name}</h4>

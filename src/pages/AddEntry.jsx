@@ -21,7 +21,31 @@ export default function AddEntry() {
     const [size, setSize] = useState("");
     const [imageLink, setImageLink] = useState("");
     const [uploadFile, setUploadFile] = useState("");
+    const [base64, setBase64] = useState("")
 
+    const getBase64 = (file) => {
+        return new Promise(resolve => {
+          let fileInfo;
+          var baseURL = "";
+          // Make new FileReader
+          let reader = new FileReader();
+    
+          // Convert the file to base64 text
+          reader.readAsDataURL(file);
+    
+          // on reader load somthing...
+          reader.onload = () => {
+            // Make a fileInfo Object
+            console.log("Called", reader);
+            baseURL = reader.result;
+            console.log(baseURL);
+            setBase64(baseURL)
+            resolve(baseURL);
+          };
+          console.log(fileInfo);
+        });
+      };
+    
     return (
         <div className="entry-cont">
             <div className="heading">
@@ -96,9 +120,17 @@ export default function AddEntry() {
                     const storageRef = ref(storage, `images/${uploadFile.name}`);
                     const uploadTask = uploadBytesResumable(storageRef, uploadFile, metadata);
                     const downloadURL = await getDownloadURL(uploadTask.snapshot.ref)
-
+                    // console.log("base64Image", base64Image);
                     console.log(downloadURL);
                     setImageLink(downloadURL);
+                    let result = await getBase64(uploadFile)
+                        
+                            let file = result;
+                            setBase64(file)
+                            console.log("File Is", file);
+                            
+                      
+                    
                     // console.log(mountainsRef);
                     let AllData = {
                         name: name,
@@ -107,6 +139,8 @@ export default function AddEntry() {
                         font: font,
                         size: size,
                         imageLink: downloadURL,
+                        base64: result
+                        
                     }
                     const docRef = await addDoc(collection(db, "data"), AllData);
                     console.log("Document written with ID: ", docRef.id);
