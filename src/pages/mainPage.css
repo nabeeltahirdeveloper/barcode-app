@@ -1,8 +1,12 @@
 .table {
     border-collapse: collapse;
-    overflow: hidden;
+    /* overflow: hidden; */
     max-width: 900px;
-    margin: 0 auto;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    margin-left: 200px;
 }
 .table + .table {
     margin-top: 2rem;

@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function MainPage() {
     const [AllData, setallData] = useState([])
+    const [selectionID, setSelectionID] = useState(false)
     const ref = React.createRef();
     const navigate = useNavigate();
 
@@ -31,6 +32,10 @@ export default function MainPage() {
         querySnapshot();
     }, []);
 
+    const checkFunc = (id) => {
+        console.log("id", id);
+    }
+
 
     return (
         <div>
@@ -51,6 +56,7 @@ export default function MainPage() {
                 <table>
                     <thead>
                         <tr>
+                            <th>Selection</th>
                             <th>Name</th>
                             <th>Code</th>
                             <th>Date</th>
@@ -64,15 +70,30 @@ export default function MainPage() {
                         {AllData.map((data) => {
 
                             return (
-                                <tr onClick={() => {
-                                    navigate('/viewData', { state: data })
-                                }}>
-                                    <td>{data.name}</td>
-                                    <td>{data.code}</td>
-                                    <td>{data.date}</td>
-                                    <td>{data.font}</td>
-                                    <td>{data.size}</td>
-                                    <td>{data.imageLink}</td>
+                                <tr >
+                                    <td>
+                                        <input type="checkbox" onClick={() => {
+                                            checkFunc(data.id)
+                                        }} />
+                                    </td>
+                                    <td onClick={() => {
+                                        navigate('/viewData', { state: data })
+                                    }}>{data.name}</td>
+                                    <td onClick={() => {
+                                        navigate('/viewData', { state: data })
+                                    }}>{data.code}</td>
+                                    <td onClick={() => {
+                                        navigate('/viewData', { state: data })
+                                    }}>{data.date}</td>
+                                    <td onClick={() => {
+                                        navigate('/viewData', { state: data })
+                                    }}>{data.font}</td>
+                                    <td onClick={() => {
+                                        navigate('/viewData', { state: data })
+                                    }}>{data.size}</td>
+                                    <td onClick={() => {
+                                        navigate('/viewData', { state: data })
+                                    }}>{data.imageLink}</td>
                                     <td style={{
                                         display: "flex",
                                     }}>
