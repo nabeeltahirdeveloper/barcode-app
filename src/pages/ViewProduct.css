@@ -2,3 +2,40 @@
     width: 30%;
     height: auto;
 }
+
+.pdf{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.image{
+    align-self: flex-start;
+}
+
+.image img{
+    width: 250px
+}
+
+.date{
+    align-self: flex-start;
+    border: 1px solid black;
+    width: 250px;
+}
+.date+.date{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: yellow;
+}
+
+.desc{
+    align-self: flex-start;
+    width: 250px;
+}
+
+.code{
+    align-self: center;
+    transform: rotate(270deg);
+}
